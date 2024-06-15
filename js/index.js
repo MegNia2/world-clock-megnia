@@ -40,5 +40,26 @@ function updateTime() {
   );
 }
 
+function selectCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  let cityCurrentTime = moment().tz(cityTimeZone);
+  let changeCity = document.querySelector("#cities");
+
+  changeCity.innerHTML = ` <div class="city" id="los-angeles">
+          <div>
+          <h2>${cityName}</h2>
+            <div class="date">${cityCurrentTime.format("MMMM Do YYYY")}</div>
+          </div>
+          <div class="time">${cityCurrentTime.format(
+            "hh:mm:ss"
+          )} <small>${cityCurrentTime.format("A")}</small></div>
+        </div>
+        </div>`;
+}
+
 updateTime();
 setInterval(updateTime, 100);
+
+let updateCity = document.querySelector("#world-clock");
+updateCity.addEventListener("change", selectCity);
