@@ -46,7 +46,7 @@ function selectCity(event) {
   let cityCurrentTime = moment().tz(cityTimeZone);
   let changeCity = document.querySelector("#cities");
 
-  changeCity.innerHTML = ` <div class="city" id="los-angeles">
+  changeCity.innerHTML = ` <div class="city">
           <div>
           <h2>${cityName}</h2>
             <div class="date">${cityCurrentTime.format("MMMM Do YYYY")}</div>
